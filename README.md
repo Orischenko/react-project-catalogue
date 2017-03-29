@@ -1,4 +1,4 @@
-# React Projects Catalogue
+# React Project Catalogue
 A one-page application.
 
 ## Use
