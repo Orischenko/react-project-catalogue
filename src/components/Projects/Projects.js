@@ -18,7 +18,7 @@ export default class Projects extends Component{
     }
 
     _getProjects() {
-        const{ projects, onClick, categoryId, handleClick } = this.props;
+        const{ projects, onClick, categoryId } = this.props;
 
         if(this.state.isOpenSingle) return null;
 
@@ -30,9 +30,8 @@ export default class Projects extends Component{
                 <li key={ project.age }>
                     <Project
                         project={ project }
-                         //onClick={ this._toggleOpen(project) } //по клику получу object
-                        onClick={ onClick(project.name) }  //по клику измениться state в родителе
-                        //onClick={ this._handleClick(project) }
+                        onClick={ this._toggleOpen(project) } //по клику получу object
+                        //onClick={ onClick(project.name) }  //по клику измениться state в родителе
                     />
                 </li>
             );
@@ -48,8 +47,10 @@ export default class Projects extends Component{
     _toggleOpen = (project) => (event) => {
         event.preventDefault();
 
+
         this.setState({
             projectId: project.id,
+            isOpenSingle: !this.state.isOpenSingle
         });
     };
 
@@ -67,12 +68,6 @@ export default class Projects extends Component{
                 </div>
             );
         });
-
-        // const elem =  projects.filter((project) => {
-        //     return project.id === this.state.projectId;
-        // })[0];
-        //
-        // console.log( '---', { singleProjectElem } );
 
         return(
             <div>

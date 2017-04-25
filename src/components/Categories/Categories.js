@@ -16,7 +16,6 @@ export default class Categories extends Component{
     render() {
         return(
             <div>
-                {/*<h2>{ this.state.isOpenCategory ? this.state.titleName : this.state.categoryName }</h2>*/}
                 <h2>{ this.state.titleName }</h2>
                 { this._getLinkBack() }
                 { this._getCategory() }
@@ -50,13 +49,6 @@ export default class Categories extends Component{
         );
     }
 
-    _handleProjectNameClick = (param) => {
-        // this.setState({
-        //     titleName: param
-        // });
-        console.log( '---', param );
-    };
-
     //transfer this.state.categoryId, for filtration projects
     _getProjects() {
         if(!this.state.isOpenProject) return null;
@@ -67,7 +59,7 @@ export default class Categories extends Component{
                     projects={ projects }
                     onClick={ this._toggleOpenSingle }
                     categoryId={ this.state.categoryId }
-                    isOpenProject={ this.state.isOpenProject }
+                    //isOpenProject={ this.state.isOpenProject }
                     isOpenSingle={ this.state.isOpenSingle }
                 />
             </div>
